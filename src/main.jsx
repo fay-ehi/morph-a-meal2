@@ -8,7 +8,6 @@ export default function Main() {
     "beans",
     "vegetable",
     "oil",
-    "spice",
   ]);
 
   const [recipe, setRecipe] = useState("");
