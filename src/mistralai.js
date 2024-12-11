@@ -1,9 +1,9 @@
-async function getRecipeFromMistral(ingredients) {
+export default async function getRecipeFromMistral(ingredients) {
   const ingredientsString = ingredients.join(", ");
 
   try {
     const response = await fetch(
-      "https://morph-a-meal.netlify.app/.netlify/functions/recipe-function",
+      "https://morph-meal.netlify.app/.netlify/functions/recipe-function",
       {
         method: "POST",
         headers: {
