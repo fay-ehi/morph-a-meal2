@@ -1,4 +1,4 @@
-export default async function getRecipeFromMistral(ingredients) {
+export async function getRecipeFromMistral(ingredients) {
   const ingredientsString = ingredients.join(", ");
 
   try {
