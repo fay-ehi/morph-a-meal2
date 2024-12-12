@@ -3,7 +3,7 @@ import Ingredient from "./ingredient";
 import Recipe from "./recipe";
 import { getRecipeFromMistral } from "./mistralRecipe";
 export default function Main() {
-  const [ingredients, setIngredients] = React.useState([]);
+  const [ingredients, setIngredients] = React.useState(["spice"]);
 
   const [recipe, setRecipe] = React.useState("");
 
