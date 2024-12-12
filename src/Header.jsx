@@ -4,7 +4,7 @@ export default function Header() {
       <nav>
         <img
           className="logo"
-          src="chef-icon-33-removebg-preview.png"
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/661/original/chef-icon-33-removebg-preview.png?1734042972"
           alt="icon"
           width="60px"
         />
