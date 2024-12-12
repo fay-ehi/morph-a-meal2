@@ -103,7 +103,9 @@ form {
 .recipeButton:hover {
   background-color: rgb(162, 102, 23);
 }
-
+.recipeButton:active {
+  background-color: red;
+}
 .ingredientList {
   margin: 10px;
 }
