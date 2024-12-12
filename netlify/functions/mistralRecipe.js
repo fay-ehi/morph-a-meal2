@@ -10,7 +10,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
   const ingredientsString = ingredientsArr.join(", ");
   try {
     const response = await hf.chatCompletion({
-      model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      model: "mistralai/Mistral-7B-Instruct-v0.3",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         {
@@ -18,7 +18,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
           content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!`,
         },
       ],
-      max_tokens: 1024,
+      max_tokens: 2000,
     });
     return response.choices[0].message.content;
   } catch (err) {
