@@ -12,7 +12,8 @@ export default function Main() {
 
   const [recipe, setRecipe] = React.useState("");
 
-  async function getRecipe() {
+  async function getRecipe(event) {
+    event.preventDefault();
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
     setRecipe(recipeMarkdown);
   }
