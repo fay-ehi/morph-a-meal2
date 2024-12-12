@@ -1,12 +1,20 @@
 import React from "react";
 import Ingredient from "./ingredient";
 import Recipe from "./recipe";
+import { getRecipeFromMistral } from "./mistralRecipe";
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([
     "rice",
     "beans",
     "vegetable",
   ]);
+
+  const [recipe, setRecipe] = React.useState("");
+
+  async function getRecipe() {
+    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setRecipe(recipeMarkdown);
+  }
 
   const ingredientListElement = ingredients.map((ingredient) => (
     <li>{ingredient}</li>
@@ -19,11 +27,6 @@ export default function Main() {
     if (newIngredients.length > 0) {
       setIngredients((prevIngredients) => [...prevIngredients, newIngredients]);
     }
-  }
-  const [recipeShown, setrecipeShown] = React.useState(false);
-  function showRecipe(event) {
-    event.preventDefault();
-    setrecipeShown((prevShow) => !prevShow);
   }
 
   return (
@@ -38,10 +41,10 @@ export default function Main() {
         <button className="submitButton">+ Add Ingredients</button>
       </form>
       {ingredients.length > 0 ? (
-        <Ingredient ingr={ingredientListElement} click={showRecipe} />
+        <Ingredient ingr={ingredientListElement} click={getRecipe} />
       ) : null}
 
-      {recipeShown && <Recipe />}
+      {recipe && <Recipe recipe={recipe} />}
     </>
   );
 }
