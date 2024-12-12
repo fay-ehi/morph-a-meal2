@@ -2,7 +2,7 @@ export default function Ingredient(props) {
   return (
     <section>
       <h2 className="subTitle">Ingredients at hand:</h2>
-      <ul className="ingredientList">{props.ingr}</ul>;
+      <ul className="ingredientList">{props.ingr}</ul>
       {props.ingr.length >= 3 ? (
         <div className="getRecipeContainer">
           <div>
