@@ -1,7 +1,7 @@
 import React from "react";
 import Ingredient from "./ingredient";
 import Recipe from "./recipe";
-import { getRecipeFromMistral } from "./mistralRecipe";
+import { getRecipeFromMistral } from "/netlify/functions/mistralRecipe.js";
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([
     "spice",
