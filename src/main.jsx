@@ -1,7 +1,7 @@
 import React from "react";
 import Ingredient from "./ingredient";
 import Recipe from "./recipe";
-import { getRecipeFromMistral } from "./mistralai";
+// import { getRecipeFromMistral } from "./mistralai";
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([
     "rice",
@@ -10,12 +10,12 @@ export default function Main() {
     "oil",
   ]);
 
-  const [recipe, setRecipe] = useState("");
+  // const [recipe, setRecipe] = useState("");
 
-  const handleRecipeFetch = async () => {
-    const recipe = await getRecipeFromMistral(ingredients);
-    setRecipe(recipe);
-  };
+  // const handleRecipeFetch = async () => {
+  //   const recipe = await getRecipeFromMistral(ingredients);
+  //   setRecipe(recipe);
+  // };
   function PopUp(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -43,7 +43,7 @@ export default function Main() {
         <Ingredient ingr={ingredientListElement} click={handleRecipeFetch} />
       ) : null}
 
-      {recipe && <Recipe getRecipe={recipe} />}
+      {/* {recipe && <Recipe getRecipe={recipe} />} */}
     </>
   );
 }
