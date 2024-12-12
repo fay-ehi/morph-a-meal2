@@ -1,4 +1,4 @@
-const { HfInference } = require("@huggingface/inference");
+import { HfInference } from "@huggingface/inference";
 
 exports.handler = async (event) => {
   const hf = new HfInference(process.env.HF_ACCESS_TOKEN);
