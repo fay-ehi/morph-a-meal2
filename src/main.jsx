@@ -3,11 +3,7 @@ import Ingredient from "./ingredient";
 import Recipe from "./recipe";
 import { getRecipeFromMistral } from "./mistralRecipe";
 export default function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    "rice",
-    "beans",
-    "vegetable",
-  ]);
+  const [ingredients, setIngredients] = React.useState([]);
 
   const [recipe, setRecipe] = React.useState("");
 
