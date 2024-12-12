@@ -1,21 +1,16 @@
 import React from "react";
-import Ingredient from "./ingredient";
+import Ingredient from "./ingrdient";
 import Recipe from "./recipe";
-// import { getRecipeFromMistral } from "./mistralai";
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([
     "rice",
     "beans",
     "vegetable",
-    "oil",
   ]);
 
-  // const [recipe, setRecipe] = useState("");
-
-  // const handleRecipeFetch = async () => {
-  //   const recipe = await getRecipeFromMistral(ingredients);
-  //   setRecipe(recipe);
-  // };
+  const ingredientListElement = ingredients.map((ingredient) => (
+    <li>{ingredient}</li>
+  ));
   function PopUp(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -25,9 +20,12 @@ export default function Main() {
       setIngredients((prevIngredients) => [...prevIngredients, newIngredients]);
     }
   }
-  const ingredientListElement = ingredients.map((ingredient) => (
-    <li>{ingredient}</li>
-  ));
+  const [recipeShown, setrecipeShown] = React.useState(false);
+  function showRecipe(event) {
+    event.preventDefault();
+    setrecipeShown((prevShow) => !prevShow);
+  }
+
   return (
     <>
       <form onSubmit={PopUp}>
@@ -40,10 +38,10 @@ export default function Main() {
         <button className="submitButton">+ Add Ingredients</button>
       </form>
       {ingredients.length > 0 ? (
-        <Ingredient ingr={ingredientListElement} click={handleRecipeFetch} />
+        <Ingredient ingr={ingredientListElement} click={showRecipe} />
       ) : null}
 
-      {/* {recipe && <Recipe getRecipe={recipe} />} */}
+      {recipeShown && <Recipe />}
     </>
   );
 }

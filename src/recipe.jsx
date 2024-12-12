@@ -2,7 +2,7 @@ import React from "react";
 export default function Recipe(props) {
   return (
     <>
-      <section className="recipe">{props.getRecipe}</section>
+      <section className="recipe">"TIRED"</section>
     </>
   );
 }
