@@ -1,8 +1,11 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 export default function Recipe(props) {
   return (
     <>
-      <section className="recipe">{props.recipe}</section>
+      <section className="recipe">
+        <ReactMarkdown>{props.recipe}</ReactMarkdown>
+      </section>
     </>
   );
 }
